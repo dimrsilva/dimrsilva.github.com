@@ -1,11 +1,16 @@
 ---
 layout: page
-title: About
+title: Sobre
 permalink: /about/
 ---
 
-This is the base Jekyll theme. You can find out more info about customizing your Jekyll theme, as well as basic Jekyll usage documentation at [jekyllrb.com](http://jekyllrb.com/)
+Bacharel em Sistemas de Informação pela [Universidade Estadual de Montes Claros][].
 
-You can find the source code for the Jekyll new theme at: [github.com/jglovier/jekyll-new](https://github.com/jglovier/jekyll-new)
+Se eu estiver fazendo alguma coisa de errado, posso ser informado pelo email [dimrsilva@gmail.com][].
+Tenho também um perfil no Facebook ([Anderson][]) e você não vai me encontrar no Twitter.
+Visite também meu perfil no GitHub ([dimrsilva][]).
 
-You can find the source code for Jekyll at [github.com/jekyll/jekyll](https://github.com/jekyll/jekyll)
+[Universidade Estadual de Montes Claros]: http://unimontes.br
+[dimrsilva@gmail.com]: mailto://dimrsilva@gmail.com
+[Anderson]: https://www.facebook.com/dimribeiro
+[dimrsilva]: https://github.com/dimrsilva
