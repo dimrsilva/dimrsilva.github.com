@@ -13,22 +13,22 @@ Um exemplo são os widgets disponíveis no jQuery UI.
 
 Normalmente esses widgets são aplicados a determinados seletores:
 
-``` javascript
+{% highlight javascript %}
 $(window).load(function() {
     $('input.datepicker').datepicker();
 });
-```
+{% endhighlight %}
 
 Um problema nesses casos, é quando precisamos adicionar dinamicamente conteúdos às páginas, como no exemplo:
 
-``` javascript
+{% highlight javascript %}
 $.ajax({
     url: 'exemplo.html',
     success: function(new_content) {
         $('#content').replaceWith(new_content);
     }
 });
-```
+{% endhighlight %}
 
 Nesse caso, para carregar um possível datepicker no novo conteúdo, deveria ser chamado novamente o trecho `$('input.datepicker').datepicker();`.
 
@@ -42,7 +42,7 @@ Para solucionar isso, podemos criar funções de comportamentos.
 Elas são responsáveis por carregar determinado comportamento em todo novo conteúdo adicionado a página.
 Essa solução foi inspirada nos [behaviors](http://dojotoolkit.org/reference-guide/1.9/dojo/behavior.html "dojo.behavior") do [Dojo](http://dojotoolkit.org/ "Dojo Toolkit").
 
-``` javascript
+{% highlight javascript %}
 var Example = {}
 Example.behaviors = []
 Example.load = function(context) {
@@ -51,11 +51,11 @@ Example.load = function(context) {
     }
 }
 
-```
+{% endhighlight %}
 
 Depois disso, para registrarmos os comportamentos, fazemos:
 
-``` javascript
+{% highlight javascript %}
 Example.behaviors.push(function(context) {
     // É importante observar a utilização da variável context
     // Ele limita a busca do jQuery para apenas o novo conteúdo que foi carregado
@@ -68,11 +68,11 @@ Example.behaviors.push(function(context) {
     });
 });
 
-```
+{% endhighlight %}
 
 Então, para adicionar os comportamentos aos elementos da página, é só fazer a chamada ao `Example.load`:
 
-``` javascript
+{% highlight javascript %}
 //Ao iniciar a página
 $(window).load(function() {
     Example.load(document); //Carrega todo o documento
@@ -86,7 +86,7 @@ $.ajax({
         Example.load(new_content);
     }
 });
-```
+{% endhighlight %}
 
 ##Conclusão
 

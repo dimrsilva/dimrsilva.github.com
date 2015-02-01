@@ -5,7 +5,6 @@ date: 2013-07-24 22:48
 comments: true
 categories: [CodeIgniter, DRY, PHP]
 keywords: CodeIgniter, Configuração, DRY, PHP
-description: Implementação DRY de carregamendo de widgets jQuery em elementos HTML após o carregamento da página
 ---
 
 Ao carregar um arquivo de configuração no CodeIgniter, se existir tal arquivo
@@ -13,12 +12,12 @@ em uma sub-pasta com o nome do ambiente (development, production ou testing)
 ele carrega esse arquivo, ao invés do primeiro.
 Um exemplo é a seguinte estrutura de arquivos:
 
-```
+{% highlight bash %}
 - config/
 |  - production/
 |  |  - config.php
 |  - config.php
-```
+{% endhighlight %}
 
 Em ambiente de produção, o CodeIgniter vai abrir o arquivo `config/production/config.php`,
 nos demais ambientes, vai abrir o arquivo `config/config.php`. Isso é bom, mas pode ser melhor.
@@ -30,7 +29,7 @@ bastando então definir apenas os itens que se diferenciam das configurações p
 
 Essa implementação é bem simples. Basta extender a classe de configuração (`CI_Config`) do CodeIgniter.
 
-``` php
+{% highlight php %}
 <?php
 class MY_Config extends CI_Config {
 
@@ -108,11 +107,11 @@ class MY_Config extends CI_Config {
     }
 
 }
-```
+{% endhighlight %}
 
 Além disso, é preciso sobrescrever a função `get_config()`, definida no arquivo `Commom.php` do CodeIgniter. Para isso, basta definir ela antes que o CodeIgniter inicialize. Uma boa ideia é incluir um arquivo logo antes ao arquivo do CodeIgniter no arquivo `index.php` de sua aplicação.
 
-``` php
+{% highlight php %}
 <?php
 /* --------------------------------------------------------------------
  * LOAD APP BOOTSTRAP FILE
@@ -129,11 +128,11 @@ require_once APPPATH.'bootstrap.php';
  *
  */
 require_once BASEPATH.'core/CodeIgniter.php';
-```
+{% endhighlight %}
 
 E adicionar no arquivo incluído (`APPPATH/bootstrap.php`), a nova definição da função.
 
-``` php
+{% highlight php %}
 <?php
 
 /**
@@ -192,4 +191,4 @@ if ( ! function_exists('get_config'))
         return $_config[0] =& $config;
     }
 }
-```
+{% endhighlight %}
